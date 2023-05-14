@@ -1,3 +1,7 @@
+---
+title: 简单欧式看涨期权定价与希腊字母：只看这篇就足够了
+zhihu-url: https://zhuanlan.zhihu.com/p/629310479
+---
 # European Call
 
 ## 1. 收益结构图像
@@ -18,17 +22,27 @@ S_t=S_0\exp[\sigma W_t^\mathbb{Q}+(r-\frac{1}{2}\sigma^2)t]\\
 S_T=S_t\exp[\sigma (W_T^\mathbb{Q}-W_t^\mathbb{Q})+(r-\frac{1}{2}\sigma^2) (T-t)]\\
 $$
 
+无风资产满足ODE，
+$$
+dS_t^0=S_t^0rdt
+$$
+假设$S_0^0\equiv1$，则，
+$$
+S_t^0=S_0^0e^{rt}=e^{rt}
+$$
+
 ### 2.2. 收益结构
 
+折现后的收益结构为
 $$
-\hat{G}(S_T)=(\hat{S}_t-K)^+\\
+\hat{G}(S_T)=\frac{(\hat{S}_T-K)^+}{S_T^0}=e^{-rT}(\hat{S}_T-K)^+\\
 $$
 
 ### 2.3. 欧式期权t时刻价格
 
-我们要计算
+我们要计算t时刻折现后的期权价格
 $$
-\hat{\Pi}_t=\mathbb{E}^\mathbb{Q}[\hat{G}(S_T)|\mathscr{F}_t]\\
+\hat{\Pi}_t=\mathbb{E}^\mathbb{Q}[\hat{G}(S_T)|\mathscr{F}_t],\hat{\Pi}_t=\frac{\Pi_t}{S_t^0}=\frac{\Pi_t}{e^{rt}}\\
 $$
 则有算式
 $$
@@ -357,3 +371,4 @@ $$
 
 ## 6. 附件链接
 
+https://github.com/Hoyuri/MathFinAllinOne/tree/main/OptionPricing/SimpleEuropeanCall
